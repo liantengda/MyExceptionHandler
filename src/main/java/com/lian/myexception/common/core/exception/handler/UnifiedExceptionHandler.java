@@ -13,7 +13,6 @@ import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
@@ -44,14 +43,14 @@ import org.springframework.web.servlet.NoHandlerFoundException;
  */
 @Slf4j
 @Component
-@ControllerAdvice
+@ControllerAdvice(basePackages = "com.lian.myexception.controller")
 @ConditionalOnWebApplication
-@ConditionalOnMissingBean(UnifiedExceptionHandler.class)
+//@ConditionalOnMissingBean(UnifiedExceptionHandler.class)
 public class UnifiedExceptionHandler {
     /**
      * 生产环境
      */
-    private final static String ENV_PROD = "prod";
+    private final static String ENV_PROD = "dev";
 
     @Autowired
     private UnifiedMessageSource unifiedMessageSource;

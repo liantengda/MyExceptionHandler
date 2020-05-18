@@ -43,6 +43,7 @@ public class UserController {
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     public R<User> del(@PathVariable("id")Integer id){
+
         return new R<>(userService.del(id));
     }
 

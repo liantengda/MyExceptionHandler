@@ -2,9 +2,9 @@ package com.lian.myexception.service.impl;
 
 
 import com.lian.myexception.constant.UserEnum;
+import com.lian.myexception.mapper.UserMapper;
 import com.lian.myexception.model.User;
 import com.lian.myexception.service.UserService;
-import com.lian.myexception.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

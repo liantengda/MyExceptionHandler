@@ -58,35 +58,6 @@
             <version>${mybatis.plus.version}</version>
         </dependency>
 
-        <!--&lt;!&ndash; 添加 代码生成器 依赖 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.baomidou</groupId>-->
-            <!--<artifactId>mybatis-plus-generator</artifactId>-->
-            <!--<version>3.1.1</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; 添加 代码生成器 依赖 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.shenjia</groupId>-->
-            <!--<artifactId>MyBatisX</artifactId>-->
-            <!--<version>0.0.5</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; 其他模板引擎 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.velocity</groupId>-->
-            <!--<artifactId>velocity</artifactId>-->
-            <!--<version>1.7</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.freemarker</groupId>-->
-            <!--<artifactId>freemarker</artifactId>-->
-            <!--<version>2.3.23</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>commons-collections</groupId>-->
-            <!--<artifactId>commons-collections</artifactId>-->
-            <!--<version>3.2.2</version>-->
-        <!--</dependency>-->
-
         <!--hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>

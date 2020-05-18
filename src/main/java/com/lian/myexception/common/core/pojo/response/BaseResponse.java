@@ -4,6 +4,7 @@ package com.lian.myexception.common.core.pojo.response;
 import com.lian.myexception.common.core.constant.IResponseEnum;
 import com.lian.myexception.common.core.constant.enums.CommonResponseEnum;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * <p>基础返回结果</p>
@@ -12,6 +13,7 @@ import lombok.Data;
  * @date 2019/5/2
  */
 @Data
+@Slf4j
 public class BaseResponse {
     /**
      * 返回码
@@ -23,6 +25,7 @@ public class BaseResponse {
     protected String message;
 
     public BaseResponse() {
+
         // 默认创建成功的回应
         this(CommonResponseEnum.SUCCESS);
     }
@@ -32,6 +35,7 @@ public class BaseResponse {
     }
 
     public BaseResponse(int code, String message) {
+        log.info("构造基类code{},message{}",code,message);
         this.code = code;
         this.message = message;
     }

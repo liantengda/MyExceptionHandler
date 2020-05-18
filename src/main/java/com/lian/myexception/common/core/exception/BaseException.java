@@ -1,5 +1,4 @@
 package com.lian.myexception.common.core.exception;
-
 import com.lian.myexception.common.core.constant.IResponseEnum;
 import lombok.Getter;
 
