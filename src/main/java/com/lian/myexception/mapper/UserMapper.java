@@ -1,7 +1,7 @@
 package com.lian.myexception.mapper;
 
 import com.lian.myexception.common.core.util.CopyNonNullUtils;
-import com.lian.myexception.constant.UserEnum;
+import com.lian.myexception.constant.MyBusinessExceptionEnum;
 import com.lian.myexception.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -35,7 +35,7 @@ public class UserMapper {
 
     public  User upd(User user){
         User userExist = userTable.get(user.getId());
-        UserEnum.USER_NOT_FOUND.assertNotNull(userExist);
+        MyBusinessExceptionEnum.USER_NOT_FOUND.assertNotNull(userExist);
         CopyNonNullUtils.copyNonNullProperties(user,userExist);
         userExist.setUpdateTime(System.currentTimeMillis());
         User put = userTable.put(userExist.getId(), userExist);

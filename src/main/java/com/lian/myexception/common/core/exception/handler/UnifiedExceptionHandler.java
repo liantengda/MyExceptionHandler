@@ -43,14 +43,14 @@ import org.springframework.web.servlet.NoHandlerFoundException;
  */
 @Slf4j
 @Component
-@ControllerAdvice(basePackages = "com.lian.myexception.controller")
+@ControllerAdvice
 @ConditionalOnWebApplication
 //@ConditionalOnMissingBean(UnifiedExceptionHandler.class)
 public class UnifiedExceptionHandler {
     /**
      * 生产环境
      */
-    private final static String ENV_PROD = "dev";
+    private final static String ENV_PROD = "prod";
 
     @Autowired
     private UnifiedMessageSource unifiedMessageSource;
@@ -60,6 +60,20 @@ public class UnifiedExceptionHandler {
      */
     @Value("${spring.profiles.active}")
     private String profile;
+
+    /**
+     * 业务异常
+     *
+     * @param e 异常
+     * @return 异常结果
+     */
+    @ExceptionHandler(value = BusinessException.class)
+    @ResponseBody
+    public ErrorResponse handleBusinessException(BaseException e) {
+        log.error(e.getMessage(), e);
+
+        return new ErrorResponse(e.getResponseEnum().getCode(), getMessage(e));
+    }
 
     /**
      * 获取国际化消息
@@ -78,19 +92,7 @@ public class UnifiedExceptionHandler {
         return message;
     }
 
-    /**
-     * 业务异常
-     *
-     * @param e 异常
-     * @return 异常结果
-     */
-    @ExceptionHandler(value = BusinessException.class)
-    @ResponseBody
-    public ErrorResponse handleBusinessException(BaseException e) {
-        log.error(e.getMessage(), e);
 
-        return new ErrorResponse(e.getResponseEnum().getCode(), getMessage(e));
-    }
 
     /**
      * 自定义异常
@@ -220,7 +222,7 @@ public class UnifiedExceptionHandler {
             return new ErrorResponse(code, message);
         }
 
-        return new ErrorResponse(CommonResponseEnum.SERVER_ERROR.getCode(), e.getMessage());
+        return new ErrorResponse(CommonResponseEnum.SERVER_ERROR.getCode(), e.toString());
     }
 
 }

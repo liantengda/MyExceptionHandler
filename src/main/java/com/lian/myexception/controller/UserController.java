@@ -28,6 +28,10 @@ public class UserController {
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public R<List<User>> list(){
+
+        String s = null;
+        s.toString();
+
         return new R<>(userService.list());
     }
 
